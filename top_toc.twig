@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+    {% if meta.description %}
+        <meta name="description" content="{{ meta.description|striptags }}">
+    {% endif %}{% if meta.robots %}
+        <meta name="robots" content="{{ meta.robots }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
+    <link rel="stylesheet" href="{{ theme_url }}/style.css" type="text/css" />
+
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
+    <script src="{{ theme_url }}/scripts/redmineService.js"></script>
+    <script src="{{ theme_url }}/scripts/main.js"></script>
+</head>
+<body>
+
+    <header id="header">
+        <div class="inner clearfix">
+            <h1><a href="{{ "praxis/test_suite"|link }}" id="logo">{{ site_title }}</a></h1>
+            <nav>
+                <a href="#" class="menu-icon"></a>
+                <ul id="redmineConnector">
+                    <li><a class="account" href="//www.hostedredmine.com/my/account" target="redmine_profile">Connect to Redmine</a></li>
+                    <li><a class="logbug" href="//www.hostedredmine.com/projects/praxis/issues/new" target="redmine_log_bug">Log a Bug</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="content">
+        <div class="inner">
+        {% include "toc_breadcrumbs.twig" %}
+        <h1>{{ meta.title }}</h1>
+        <ul>
+        {% set currentSet = current_page.id|split('/')|slice(2, 1)|first %}
+        {% for page in pages|sort_by('meta:position'|split(':')) %}
+            {% if (page.id starts with 'praxis/test_suite/' ~ currentSet) and (current_page != page) %}
+                {% if page.meta.template %}
+                    <li><a href="{{ page.url }}">{{page.meta.position}}: {{ page.title }}</a></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        </ul>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="inner">
+        </div>
+    </footer>
+</body>
+</html>

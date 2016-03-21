@@ -1,0 +1,11 @@
+<div class="breadcrumbs">
+    {% set breadcrumbs = '' %}
+    {% set parts = current_page.id|split('/')|slice(0, length - 2) %}
+    {% set path = '' %}
+    {% set pos = 0 %}
+    {% for part in parts %}
+        {% set pos = pos + 1 %}
+        {% set path = parts|slice(0, pos)|join('/') %}
+        <span><a href="{{path|link}}">{{part|title}}</a> /</span>
+    {% endfor %}
+</div>
