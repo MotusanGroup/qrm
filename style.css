@@ -1,7 +1,7 @@
 /*=================================*/
-/* QRM Theme
-/* By: Paul Monk
-/* http: //www.goletaworks.com
+/* QRM Theme for Pico
+/* By: Paul Monk (paul@motusan.ca)
+/* http: //www.motusan.ca
 /*=================================*/
 
 /* Reset Styles
@@ -273,38 +273,6 @@ blockquote {
 #footer a { color: #ddd; }
 #footer a:hover { color: #fff; }
 
-/* Redmine integration styles */
-
-/*
-#redmineConnector {
-    display: inline-block;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background-color: #c0c0c0;
-    padding: 10px;
-    border: 2px solid #c0c0c0;
-    border-radius: 5px;
-    margin-left: 5px;
-}
-
-#redmineConnector:hover {
-    border: 2px solid black;
-}
-
-#redmineConnector a {
-    display: block;
-    color: #000;
-    font-weight: bold;
-}
-
-#redmineConnector a:hover {
-    display: block;
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-}
-*/
 
 /* Misc Styles
 /*---------------------------------------------*/
